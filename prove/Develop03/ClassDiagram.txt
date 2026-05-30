@@ -1,0 +1,49 @@
+----------- Scripture -----------
+Attributes
+   private _words : List<Word>
+   private _reference : Reference
+
+Behaviors
+    HideWords(count:int) : void
+    GetDisplayTxt() : string
+    AllWordsHidden() : bool
+
+Constructors
+    Scripture(reference, text)
+
+------------- Word -------------
+Attributes
+   private _text : string
+   private _isHidden : bool
+
+Behaviors
+    Hide() : void
+    IsHidden() : bool
+    GetDisplayTxt() : string
+
+Constructors
+    Word(text : string)
+
+----------- Reference -----------
+Attributes
+   private _book : string
+   private _chapter : int
+   private _verse : int
+   private _endingVerse : int
+
+Behaviors
+    GetDisplayTxt() : string
+    
+Constructors
+    Reference(book, chapter, verse)
+    Reference(book, chapter, verse, endVerse)
+
+
+---------- DESCRIPTION ----------
+The scripture class will contain a Reference object along with
+a list of word objects. It will use these two objects to manage
+the reference and the words within the scripture. The Reference
+class will format and store the reference itself. The word class
+will manage whether the text of each individual word is hidden 
+or displayed. A program class will be written to tie these classes
+together, along with generating a user interface within the console.
