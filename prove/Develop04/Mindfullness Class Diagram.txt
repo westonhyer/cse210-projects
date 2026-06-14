@@ -1,0 +1,49 @@
+--------- Activity ---------
+Attributes
+    private _activityName : string
+    private _description  : string
+    private _duration     : int
+
+Behaviors 
+    DisplayStartingMessage()      : void
+    DisplayEndMessage()           : void
+    ShowSpinner(seconds:int)      : void
+    DisplayCountdown(seconds:int) : void
+    GetDuration()                 : int
+
+Constructors
+    Activity(name, description) : void
+
+--------- Breathing Activity ---------
+Attributes
+
+Behaviors
+    Run() : void
+
+Constructors
+    BreathingActivity() : base(name, description)
+
+--------- Reflection Activity --------
+Attributes
+    private _prompts   : List<string>
+    private _questions : List<string>
+
+Behaviors
+    Run() : void
+    GetRandomPrompt() : string
+    GetRandomQuestion() : string
+
+Constructors
+    Reflection Activity() : base(name, description)
+
+--------- Listening Activity ---------
+Attributes
+    private _prompts : List<string>
+
+Behaviors
+    Run() : void
+    GetRandomPrompt() : string
+    CountItems() : int
+
+Constructors
+    ListeningActivity() : base(name, description)
