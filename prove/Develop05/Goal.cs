@@ -1,23 +1,38 @@
 using System;
 
-public class Goal
+public abstract class Goal
 {
-    private string _goalName;
-    private string _goalDescription;
-    private int _points;
-    private bool _isComplete = false;
+    protected string _goalName;
+    protected string _description;
+    protected int _points;
 
-    public Goal(string goalName, string goalDescription, int points)
+    protected Goal(string goalName, string description, int points)
     {
         _goalName = goalName;
-        _goalDescription = goalDescription;
+        _description = description;
         _points = points;
     }
-    public string GetDetails()
+
+    public abstract int RecordEvent();
+
+    public abstract bool IsComplete();
+
+    public virtual string GetStatus()
     {
-        return $"[ ] {_goalName}\n{_goalDescription} - {_points} points.";
+        if (IsComplete())
+        {
+            return "[X]";
+        }
+        else
+        {
+            return "[ ]";
+        }
     }
-    public string GetStatus()
+
+    public virtual string GetDetails()
     {
-        return "";
+        return $"{GetStatus()} {_goalName}";
     }
+    
+    public abstract string GetStringRepresentation();
+}
