@@ -1,12 +1,17 @@
 using System;
 
-public class Cycleing : Activity
+public class Cycling : Activity
 {
     private double _speed;
+
+    public Cycling(string date, double minutes, string type, double speed) : base(date, minutes, type)
+    {
+        _speed = speed;
+    }
     
     public override double GetDistance()
     {
-        return 1;
+        return (_speed * GetMinutes()) / 60;
     }
 
     public override double GetSpeed()
@@ -16,6 +21,11 @@ public class Cycleing : Activity
 
     public override double GetPace()
     {
-        return 60 / _speed;
+        return Math.Round((_speed / 60), 2);
+    }
+
+    public override string GetSummary()
+    {
+        return $"{base.GetSummary()}Distance: {GetDistance()} miles\nSpeed: {GetSpeed()}mph\nPace: {GetPace()} miles/min";
     }
 }
