@@ -9,19 +9,19 @@ public class Event
     private string _time;
     private Address _address;
 
-    public Event(string type, string title, string description, string date, string time, Address address)
+    public Event(string type, string title, string date, string time, Address address)
     {
         _type = type;
         _title = title;
-        _description = description;
         _date = date;
         _time = time;
         _address = address;
+        _description = GetDescription();
     }
 
     public string GetStandardDetails()
     {
-        return $"Title: {_title}\n{_description}\n{_date} @ {_time}\n{_address}";
+        return $"{_description} @ {_time}\n\n{_address.GetAddress()}\n";
     }
 
     public virtual string GetFullDetails()
@@ -31,6 +31,6 @@ public class Event
 
     public string GetDescription()
     {
-        return $"Event type: {_type}\nTitle: {_title}\n Date: {_date}";
+        return $"Title: {_title}\nEvent Type: {_type}\nDate: {_date}";
     }
 }
